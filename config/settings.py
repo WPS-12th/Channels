@@ -18,7 +18,16 @@ SECRET_KEY = 'pf-+go*+wz44$d#(inej(f+ebk!$x__-_5m6$=cmh)b4-i(*u_'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
 ASGI_APPLICATION = 'config.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Application definition
 
@@ -31,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
 
     'channels',
 ]
