@@ -9,11 +9,28 @@
 </head>
 <body>
     <h1>Lobby</h1>
-    <input type="text" id="room-name">
-    <button>Go</button>
+    <input id="room-name" type="text">
+    <button id="submit">Go</button>
 
     <script>
+        // #room-name(input)에 Focus
+        document.querySelector('#room-name').focus();
 
+        // #room-name(input)에서 엔터를 누르면
+        // #submit을 클릭한다
+        document.querySelector('#room-name').onkeyup = function (e) {
+            if (e.keyCode === 13) {
+                document.querySelector('#submit').click();
+            }
+        };
+
+        // #submit이 클릭되면
+        document.querySelector('#submit').onclick = function (e) {
+            // #room-name(input)에 있는 내용을 roomName변수에 할당
+            var roomName = document.querySelector('#room-name').value;
+            // 현재 창의 경로를 <roomName>/ 로 변경
+            window.location.pathname = roomName + '/';
+        };
     </script>
 </body>
 </html>
