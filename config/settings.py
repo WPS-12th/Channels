@@ -18,17 +18,21 @@ SECRET_KEY = 'pf-+go*+wz44$d#(inej(f+ebk!$x__-_5m6$=cmh)b4-i(*u_'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+ASGI_APPLICATION = 'config.routing.application'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'chat',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'channels',
 ]
 
 MIDDLEWARE = [
